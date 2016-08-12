@@ -3,9 +3,13 @@ import { Meal } from './meal.model';
 
 @Component({
   selector: 'meal-display',
-  inputs: ['task'],
+  inputs: ['meal'],
   template: `
-
+    <div>
+      <input *ngIf="meal.done === true" type="checkbox" checked (click)="toggleDone(false)"/>
+      <input *ngIf="meal.done === false" type="checkbox" (click)="toggleDone(true)"/>
+      <label>{{ meal.description }}</label>
+    </div>
   `
 })
 

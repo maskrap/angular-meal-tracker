@@ -27,8 +27,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 MealComponent = __decorate([
                     core_1.Component({
                         selector: 'meal-display',
-                        inputs: ['task'],
-                        template: "\n\n  "
+                        inputs: ['meal'],
+                        template: "\n    <div>\n      <input *ngIf=\"meal.done === true\" type=\"checkbox\" checked (click)=\"toggleDone(false)\"/>\n      <input *ngIf=\"meal.done === false\" type=\"checkbox\" (click)=\"toggleDone(true)\"/>\n      <label>{{ meal.description }}</label>\n    </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MealComponent);
