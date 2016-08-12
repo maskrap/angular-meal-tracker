@@ -44,7 +44,7 @@ System.register(['angular2/core', './meal.component', './meal.model', './edit-me
                     this.onMealSelect.emit(clickedMeal);
                 };
                 mealListComponent.prototype.createMeal = function (name, detail, calorie) {
-                    this.mealList.push(new meal_model_1.Meal(name, detail, calorie, this.mealList.length));
+                    this.mealList.push(new meal_model_1.Meal(name, detail, calorie));
                 };
                 mealListComponent.prototype.onChange = function (optionFromMenu) {
                     this.selectedCompleteness = optionFromMenu;

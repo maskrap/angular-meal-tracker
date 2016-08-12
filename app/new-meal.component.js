@@ -34,7 +34,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Component({
                         selector: 'new-meal',
                         outputs: ['onSubmitNewMeal'],
-                        template: "\n  <div class=\"meal-form\">\n    <h3>Create Meal:</h3>\n    <input placeholder=\"Name\" class=\"col-sm-8 input-lg\" #newName>\n    <input placeholder=\"Detail\" class=\"col-sm-8 input-lg\" #newDetail>\n    <input placeholder=\"Calorie\" class=\"col-sm-8 input-lg\" #newCalorie>\n    <button (click)=\"addMeal(newName), addMeal(newDetail), addMeal(newCalorie)\" class=\"btn-lg\">Add</button>\n  </div>\n  "
+                        template: "\n  <div class=\"meal-form\">\n    <h3>Create Meal:</h3>\n    <input placeholder=\"Name\" class=\"col-sm-8 input-lg\" #newName>\n    <input placeholder=\"Detail\" class=\"col-sm-8 input-lg\" #newDetail>\n    <input placeholder=\"Calorie\" class=\"col-sm-8 input-lg\" #newCalorie>\n    <button (click)=\"addMeal(newName, newDetail, newCalorie)\" class=\"btn-lg\">Add</button>\n  </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], NewMealComponent);
