@@ -16,12 +16,12 @@ import { Meal } from './meal.model';
 })
 
 export class AppComponent {
-  public meals: Meal[] = [];
+  public meals: Meal[];
   constructor(){
     this.meals = [
       new Meal("Wild Alaskan Sea Venison", "exquisite, so local, so moist", 500),
       new Meal("Chicago-style Crabdogs", "perfect for a cubbies game", 600),
-      new Meal("Los Angeles-style steak", "it's quinoa", 100)
+      new Meal("Los Angeles-style steak", "it is quinoa", 100)
     ];
   }
   mealWasSelected(clickedMeal: Meal): void {

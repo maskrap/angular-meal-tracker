@@ -22,12 +22,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function caloriesPipe() {
                 }
                 caloriesPipe.prototype.transform = function (input, info) {
-                    if (info[0] === "high calories!") {
+                    if (info[0] === "highCal") {
                         return input.filter(function (meal) {
                             return meal.calorie >= 500;
                         });
                     }
-                    else if (info[0] === "low calories!") {
+                    else if (info[0] === "lowCal") {
                         return input.filter(function (meal) {
                             return meal.calorie <= 500;
                         });
