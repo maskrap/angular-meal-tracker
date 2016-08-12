@@ -46,7 +46,7 @@ export class mealListComponent {
 
   createMeal(newMeal: string[]): void {
     this.mealList.push(
-      new Meal(newMeal[0], newMeal[1], parseInt(newMeal[2]), this.mealList.length)
+      new Meal(newMeal[0], newMeal[1], parseInt(newMeal[2]))
     );
   }
 
