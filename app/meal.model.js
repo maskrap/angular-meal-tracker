@@ -6,10 +6,10 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Meal = (function () {
-                function Meal(name, details, calories) {
+                function Meal(name, detail, calorie) {
                     this.name = name;
-                    this.details = details;
-                    this.calories = calories;
+                    this.detail = detail;
+                    this.calorie = calorie;
                     this.done = false;
                 }
                 return Meal;

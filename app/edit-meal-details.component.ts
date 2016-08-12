@@ -8,8 +8,8 @@ import {Meal} from './meal.model';
     <div class="meal-form">
       <h3>Edit Description: </h3>
       <input [(ngModel)]="meal.name" class="col-sm-8 input-lg"/>
-      <input [(ngModel)]="meal.details" class="col-sm-8 input-lg"/>
-      <input [(ngModel)]="meal.calories" class="col-sm-8 input-lg"/>
+      <input [(ngModel)]="meal.detail" class="col-sm-8 input-lg"/>
+      <input [(ngModel)]="meal.calorie" class="col-sm-8 input-lg"/>
     </div>
   `
 })

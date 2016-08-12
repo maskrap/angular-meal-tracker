@@ -7,8 +7,10 @@ import {Meal} from './meal.model';
   template: `
   <div class="meal-form">
     <h3>Create Meal:</h3>
-    <input placeholder="Description" class="col-sm-8 input-lg" #newDescription>
-    <button (click)="addMeal(newDescription)" class="btn-lg">Add</button>
+    <input placeholder="Name" class="col-sm-8 input-lg" #newName>
+    <input placeholder="Detail" class="col-sm-8 input-lg" #newDetail>
+    <input placeholder="Calorie" class="col-sm-8 input-lg" #newCalorie>
+    <button (click)="addMeal(newName), addMeal(newDetail), addMeal(newCalorie)" class="btn-lg">Add</button>
   </div>
   `
 })
@@ -18,8 +20,13 @@ export class NewMealComponent {
   constructor(){
     this.onSubmitNewMeal = new EventEmitter();
   }
-  addMeal(userDescription: HTMLInputElement){
-    this.onSubmitNewMeal.emit(userDescription.value);
-    userDescription.value = "";
+  addMeal(userName: HTMLInputElement, userDetail: HTMLInputElement, userCalorie: HTMLInputElement){
+    this.onSubmitNewMeal.emit(userName.value);
+    userName.value = "";
+    this.onSubmitNewMeal.emit(userDetail.value);
+    userDetail.value = "";
+    this.onSubmitNewMeal.emit(userCalorie.value);
+    userCalorie.value = "";
   }
+
 }

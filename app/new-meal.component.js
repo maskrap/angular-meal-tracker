@@ -22,15 +22,19 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function NewMealComponent() {
                     this.onSubmitNewMeal = new core_1.EventEmitter();
                 }
-                NewMealComponent.prototype.addMeal = function (userDescription) {
-                    this.onSubmitNewMeal.emit(userDescription.value);
-                    userDescription.value = "";
+                NewMealComponent.prototype.addMeal = function (userName, userDetail, userCalorie) {
+                    this.onSubmitNewMeal.emit(userName.value);
+                    userName.value = "";
+                    this.onSubmitNewMeal.emit(userDetail.value);
+                    userDetail.value = "";
+                    this.onSubmitNewMeal.emit(userCalorie.value);
+                    userCalorie.value = "";
                 };
                 NewMealComponent = __decorate([
                     core_1.Component({
                         selector: 'new-meal',
                         outputs: ['onSubmitNewMeal'],
-                        template: "\n  <div class=\"meal-form\">\n    <h3>Create Meal:</h3>\n    <input placeholder=\"Description\" class=\"col-sm-8 input-lg\" #newDescription>\n    <button (click)=\"addMeal(newDescription)\" class=\"btn-lg\">Add</button>\n  </div>\n  "
+                        template: "\n  <div class=\"meal-form\">\n    <h3>Create Meal:</h3>\n    <input placeholder=\"Name\" class=\"col-sm-8 input-lg\" #newName>\n    <input placeholder=\"Detail\" class=\"col-sm-8 input-lg\" #newDetail>\n    <input placeholder=\"Calorie\" class=\"col-sm-8 input-lg\" #newCalorie>\n    <button (click)=\"addMeal(newName), addMeal(newDetail), addMeal(newCalorie)\" class=\"btn-lg\">Add</button>\n  </div>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], NewMealComponent);
