@@ -18,7 +18,7 @@ import { caloriesPipe } from './calories.pipe';
       <option value="highCal">High calorie</option>
     </select>
 
-    <meal-display *ngFor="#currentMeal of mealList | calories:selectCalories"
+    <meal-display *ngFor="#currentMeal of mealList | calories:selectedCalories"
       (click)="mealClicked(currentMeal)"
       [class.selected]="currentMeal === selectedMeal"
       [meal]="currentMeal">
