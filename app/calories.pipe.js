@@ -11,50 +11,42 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var CompletenessPipe;
+    var caloriesPipe;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            CompletenessPipe = (function () {
-                function CompletenessPipe() {
+            caloriesPipe = (function () {
+                function caloriesPipe() {
                 }
-                CompletenessPipe.prototype.transform = function (input, info) {
-                    var desiredCompleteness = info[0];
-                    var output = [];
-                    if (desiredCompleteness === "notDone") {
-                        for (var i = 0; i < input.length; i++) {
-                            if (input[i].done === false) {
-                                output.push(input[i]);
-                            }
-                        }
-                        return output;
+                caloriesPipe.prototype.transform = function (input, info) {
+                    if (info[0] === "high calories!") {
+                        return input.filter(function (meal) {
+                            return meal.calorie >= 500;
+                        });
                     }
-                    else if (desiredCompleteness === "isDone") {
-                        for (var i = 0; i < input.length; i++) {
-                            if (input[i].done === true) {
-                                output.push(input[i]);
-                            }
-                        }
-                        return output;
+                    else if (info[0] === "low calories!") {
+                        return input.filter(function (meal) {
+                            return meal.calorie <= 500;
+                        });
                     }
                     else {
                         return input;
                     }
                 };
-                CompletenessPipe = __decorate([
+                caloriesPipe = __decorate([
                     core_1.Pipe({
-                        name: "completeness",
+                        name: "calorie",
                         pure: false
                     }), 
                     __metadata('design:paramtypes', [])
-                ], CompletenessPipe);
-                return CompletenessPipe;
+                ], caloriesPipe);
+                return caloriesPipe;
             }());
-            exports_1("CompletenessPipe", CompletenessPipe);
+            exports_1("caloriesPipe", caloriesPipe);
         }
     }
 });
-//# sourceMappingURL=completeness.pipe.js.map
+//# sourceMappingURL=calories.pipe.js.map

@@ -26,6 +26,7 @@ System.register(['angular2/core', './meal-list.component', './meal.model'], func
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.meals = [];
                     this.meals = [
                         new meal_model_1.Meal("Wild Alaskan Sea Venison", "exquisite, so local, so moist", 500),
                         new meal_model_1.Meal("Chicago-style Crabdogs", "perfect for a cubbies game", 600),

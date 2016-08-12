@@ -3,22 +3,22 @@ import { MealComponent } from './meal.component';
 import { Meal } from './meal.model';
 import { EditMealDetailsComponent } from './edit-meal-details.component';
 import { NewMealComponent } from './new-meal.component';
-import { CompletenessPipe } from './completeness.pipe';
+import { caloriesPipe } from './calories.pipe';
 
 @Component({
   selector: 'meal-list',
   inputs: ['mealList'],
   outputs: ['onMealSelect'],
   directives: [MealComponent, EditMealDetailsComponent, NewMealComponent],
-  pipes: [CompletenessPipe],
+  pipes: [caloriesPipe],
   template: `
     <select (change)="onChange($event.target.value)" class="filter">
-      <option value="all">Show All</option>
-      <option value="isDone">Show Done</option>
-      <option value="notDone" selected="selected">Show Not Done</option>
+      <option value="all" selected="selected">Show All</option>
+      <option value="lowCal">Low calorie</option>
+      <option value="highCal">High calorie</option>
     </select>
 
-    <meal-display *ngFor="#currentMeal of mealList | completeness:selectedCompleteness"
+    <meal-display *ngFor="#currentMeal of mealList | calories:selectCals"
       (click)="mealClicked(currentMeal)"
       [class.selected]="currentMeal === selectedMeal"
       [meal]="currentMeal">
@@ -33,7 +33,7 @@ export class mealListComponent {
   public mealList: Meal[];
   public onMealSelect: EventEmitter<Meal>;
   public selectedMeal: Meal;
-  public selectedCompleteness: string ="notDone";
+  public selectedCalories: string ="all";
   constructor() {
     this.onMealSelect = new EventEmitter();
   }
@@ -44,13 +44,14 @@ export class mealListComponent {
     this.onMealSelect.emit(clickedMeal);
   }
 
-  createMeal(name: string, detail: string, calorie: number): void {
+  createMeal(newMeal: string[]): void {
     this.mealList.push(
-      new Meal(name, detail, calorie, this.mealList.length)
+      new Meal(newMeal[0], newMeal[1], parseInt(newMeal[2]), this.mealList.length)
     );
   }
+
   onChange(optionFromMenu) {
-    this.selectedCompleteness = optionFromMenu;
-    console.log(this.selectedCompleteness);
+    this.selectedCalories = optionFromMenu;
+    console.log(this.selectedCalories);
   }
 }

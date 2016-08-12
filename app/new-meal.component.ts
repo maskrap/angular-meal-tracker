@@ -20,13 +20,12 @@ export class NewMealComponent {
   constructor(){
     this.onSubmitNewMeal = new EventEmitter();
   }
-  addMeal(userName: HTMLInputElement, userDetail: HTMLInputElement, userCalorie: HTMLInputElement){
-    this.onSubmitNewMeal.emit(userName.value);
-    userName.value = "";
-    this.onSubmitNewMeal.emit(userDetail.value);
-    userDetail.value = "";
-    this.onSubmitNewMeal.emit(userCalorie.value);
-    userCalorie.value = "";
+  addMeal(mealName: HTMLInputElement, mealDetail: HTMLInputElement, mealCalorie: HTMLInputElement){
+    this.onSubmitNewMeal.emit(mealName.value);
+    mealName.value = "";
+    this.onSubmitNewMeal.emit(mealDetail.value);
+    mealDetail.value = "";
+    this.onSubmitNewMeal.emit(mealCalorie.value);
+    mealCalorie.value = "";
   }
-
 }

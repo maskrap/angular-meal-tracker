@@ -1,4 +1,4 @@
-System.register(['angular2/core', './meal.component', './meal.model', './edit-meal-details.component', './new-meal.component', './completeness.pipe'], function(exports_1, context_1) {
+System.register(['angular2/core', './meal.component', './meal.model', './edit-meal-details.component', './new-meal.component', './calories.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './meal.component', './meal.model', './edit-me
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, meal_component_1, meal_model_1, edit_meal_details_component_1, new_meal_component_1, completeness_pipe_1;
+    var core_1, meal_component_1, meal_model_1, edit_meal_details_component_1, new_meal_component_1, calories_pipe_1;
     var mealListComponent;
     return {
         setters:[
@@ -29,13 +29,13 @@ System.register(['angular2/core', './meal.component', './meal.model', './edit-me
             function (new_meal_component_1_1) {
                 new_meal_component_1 = new_meal_component_1_1;
             },
-            function (completeness_pipe_1_1) {
-                completeness_pipe_1 = completeness_pipe_1_1;
+            function (calories_pipe_1_1) {
+                calories_pipe_1 = calories_pipe_1_1;
             }],
         execute: function() {
             mealListComponent = (function () {
                 function mealListComponent() {
-                    this.selectedCompleteness = "notDone";
+                    this.selectedCalories = "all";
                     this.onMealSelect = new core_1.EventEmitter();
                 }
                 mealListComponent.prototype.mealClicked = function (clickedMeal) {
@@ -43,12 +43,12 @@ System.register(['angular2/core', './meal.component', './meal.model', './edit-me
                     this.selectedMeal = clickedMeal;
                     this.onMealSelect.emit(clickedMeal);
                 };
-                mealListComponent.prototype.createMeal = function (name, detail, calorie) {
-                    this.mealList.push(new meal_model_1.Meal(name, detail, calorie, this.mealList.length));
+                mealListComponent.prototype.createMeal = function (newMeal) {
+                    this.mealList.push(new meal_model_1.Meal(newMeal[0], newMeal[1], parseInt(newMeal[2]), this.mealList.length));
                 };
                 mealListComponent.prototype.onChange = function (optionFromMenu) {
-                    this.selectedCompleteness = optionFromMenu;
-                    console.log(this.selectedCompleteness);
+                    this.selectedCalories = optionFromMenu;
+                    console.log(this.selectedCalories);
                 };
                 mealListComponent = __decorate([
                     core_1.Component({
@@ -56,8 +56,8 @@ System.register(['angular2/core', './meal.component', './meal.model', './edit-me
                         inputs: ['mealList'],
                         outputs: ['onMealSelect'],
                         directives: [meal_component_1.MealComponent, edit_meal_details_component_1.EditMealDetailsComponent, new_meal_component_1.NewMealComponent],
-                        pipes: [completeness_pipe_1.CompletenessPipe],
-                        template: "\n    <select (change)=\"onChange($event.target.value)\" class=\"filter\">\n      <option value=\"all\">Show All</option>\n      <option value=\"isDone\">Show Done</option>\n      <option value=\"notDone\" selected=\"selected\">Show Not Done</option>\n    </select>\n\n    <meal-display *ngFor=\"#currentMeal of mealList | completeness:selectedCompleteness\"\n      (click)=\"mealClicked(currentMeal)\"\n      [class.selected]=\"currentMeal === selectedMeal\"\n      [meal]=\"currentMeal\">\n    </meal-display>\n  <edit-meal-details *ngIf=\"selectedMeal\" [meal]=\"selectedMeal\"></edit-meal-details>\n  <br>\n  <new-meal (onSubmitNewMeal)=\"createMeal($event)\"></new-meal>\n  "
+                        pipes: [calories_pipe_1.caloriesPipe],
+                        template: "\n    <select (change)=\"onChange($event.target.value)\" class=\"filter\">\n      <option value=\"all\" selected=\"selected\">Show All</option>\n      <option value=\"lowCal\">Low calorie</option>\n      <option value=\"highCal\">High calorie</option>\n    </select>\n\n    <meal-display *ngFor=\"#currentMeal of mealList | calories:selectCals\"\n      (click)=\"mealClicked(currentMeal)\"\n      [class.selected]=\"currentMeal === selectedMeal\"\n      [meal]=\"currentMeal\">\n    </meal-display>\n  <edit-meal-details *ngIf=\"selectedMeal\" [meal]=\"selectedMeal\"></edit-meal-details>\n  <br>\n  <new-meal (onSubmitNewMeal)=\"createMeal($event)\"></new-meal>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], mealListComponent);

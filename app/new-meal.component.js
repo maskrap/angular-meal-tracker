@@ -22,13 +22,13 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function NewMealComponent() {
                     this.onSubmitNewMeal = new core_1.EventEmitter();
                 }
-                NewMealComponent.prototype.addMeal = function (userName, userDetail, userCalorie) {
-                    this.onSubmitNewMeal.emit(userName.value);
-                    userName.value = "";
-                    this.onSubmitNewMeal.emit(userDetail.value);
-                    userDetail.value = "";
-                    this.onSubmitNewMeal.emit(userCalorie.value);
-                    userCalorie.value = "";
+                NewMealComponent.prototype.addMeal = function (mealName, mealDetail, mealCalorie) {
+                    this.onSubmitNewMeal.emit(mealName.value);
+                    mealName.value = "";
+                    this.onSubmitNewMeal.emit(mealDetail.value);
+                    mealDetail.value = "";
+                    this.onSubmitNewMeal.emit(mealCalorie.value);
+                    mealCalorie.value = "";
                 };
                 NewMealComponent = __decorate([
                     core_1.Component({

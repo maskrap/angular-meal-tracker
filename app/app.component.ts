@@ -16,7 +16,7 @@ import { Meal } from './meal.model';
 })
 
 export class AppComponent {
-  public meals: Meal[];
+  public meals: Meal[] = [];
   constructor(){
     this.meals = [
       new Meal("Wild Alaskan Sea Venison", "exquisite, so local, so moist", 500),
