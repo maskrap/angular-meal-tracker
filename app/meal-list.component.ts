@@ -13,20 +13,20 @@ import { caloriesPipe } from './calories.pipe';
   pipes: [caloriesPipe],
   template: `
   <div class="container">
-    <select (change)="onChange($event.target.value)" class="filter">
-      <option value="all" selected="selected">Show All</option>
-      <option value="lowCal">Low calorie</option>
-      <option value="highCal">High calorie</option>
-    </select>
+  <select (change)="onChange($event.target.value)" class="filter">
+  <option value="all" selected="selected">Show All</option>
+  <option value="lowCal">Low calorie</option>
+  <option value="highCal">High calorie</option>
+  </select>
   </div>
   <div class="container">
-    <meal-display *ngFor="#currentMeal of mealList | calories:selectedCalories"
-      (click)="mealClicked(currentMeal)"
-      [class.selected]="currentMeal === selectedMeal"
-      [meal]="currentMeal">
-    </meal-display>
-    <edit-meal-details *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal-details>
-    <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
+  <meal-display *ngFor="#currentMeal of mealList | calories:selectedCalories"
+  (click)="mealClicked(currentMeal)"
+  [class.selected]="currentMeal === selectedMeal"
+  [meal]="currentMeal">
+  </meal-display>
+  <edit-meal-details *ngIf="selectedMeal" [meal]="selectedMeal"></edit-meal-details>
+  <new-meal (onSubmitNewMeal)="createMeal($event)"></new-meal>
   </div>
   `
 })
