@@ -46,7 +46,7 @@ export class mealListComponent {
 
   createMeal(name: string, detail: string, calorie: number): void {
     this.mealList.push(
-      new Meal(name, detail, calorie)
+      new Meal(name, detail, calorie, this.mealList.length)
     );
   }
   onChange(optionFromMenu) {
