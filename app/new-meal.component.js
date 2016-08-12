@@ -23,11 +23,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.onSubmitNewMeal = new core_1.EventEmitter();
                 }
                 NewMealComponent.prototype.addMeal = function (mealName, mealDetail, mealCalorie) {
-                    this.onSubmitNewMeal.emit(mealName.value);
+                    this.onSubmitNewMeal.emit([mealName.value, mealDetail.value, mealCalorie.value]);
                     mealName.value = "";
-                    this.onSubmitNewMeal.emit(mealDetail.value);
                     mealDetail.value = "";
-                    this.onSubmitNewMeal.emit(mealCalorie.value);
                     mealCalorie.value = "";
                 };
                 NewMealComponent = __decorate([
