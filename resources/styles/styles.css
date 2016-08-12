@@ -1,8 +1,17 @@
 h1 {
   color: grey;
+  margin-bottom: 40px;
 }
 
-.task-form {
+.meal-list {
+  padding-bottom: 20px;
+}
+
+.meal-form {
   margin-top: 80px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
+}
+
+.container {
+  margin-top: 10px;
 }
